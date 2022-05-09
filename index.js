@@ -1,32 +1,41 @@
 let futureClock = document.querySelector('p')
 let futureDate = document.querySelector('div')
-function timeToday() {
-
-}
-setInterval(() => {
-    let date = new Date
+function timeToday(date) {
+    
     let hours = date.getHours()
     let minutes = date.getMinutes()
     let seconds = date.getSeconds()
     let day = date.getDay()
     let mounth = date.getMonth()
     let year = date.getFullYear()
-    if (minutes < 10) {
-        minutes = 0 + String(minutes)
+    return units = [
+        hours,
+        minutes,
+        seconds,
+        day,
+        mounth,
+        year
+    ]
+}
+setInterval(() => {
+    let date = new Date
+    timeToday(date)
+    if (units[1] < 10) {
+        units[1] = 0 + String(units[1])
     }
-    if (hours < 10) {
-        hours = 0 + String(hours)
+    if (units[0] < 10) {
+        units[0] = 0 + String(units[0])
     }
-    if (seconds < 10) {
-        seconds = 0 + String(seconds)
+    if (units[2] < 10) {
+        units[2] = 0 + String(units[2])
     }
-    if (day < 10) {
-        day = 0 + String(day)
+    if (units[3] < 10) {
+        units[3] = 0 + String(units[3])
     }
-    if (mounth < 10) {
-        mounth = 0 + String(mounth)
+    if (units[4] < 10) {
+        units[4] = 0 + String(units[4])
     }
     
-    futureDate.textContent = `${day}.${mounth}.${year}YEAR`
-    futureClock.textContent = `${hours}:${minutes}:${seconds}`
+    futureDate.textContent = `${units[3]}.${units[4]}.${units[5]}YEAR`
+    futureClock.textContent = `${units[0]}:${units[1]}:${units[2]}`
 }, 1000)
