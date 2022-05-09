@@ -5,7 +5,7 @@ function timeToday(date) {
     let hours = date.getHours()
     let minutes = date.getMinutes()
     let seconds = date.getSeconds()
-    let day = date.getDay()
+    let day = date.getDate()
     let mounth = date.getMonth()
     let year = date.getFullYear()
     return units = [
@@ -33,7 +33,7 @@ setInterval(() => {
         units[3] = 0 + String(units[3])
     }
     if (units[4] < 10) {
-        units[4] = 0 + String(units[4])
+        units[4] = 0 + String(units[4]+1)
     }
     
     futureDate.textContent = `${units[3]}.${units[4]}.${units[5]}YEAR`
